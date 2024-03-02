@@ -273,7 +273,7 @@ jobs:
         
     - name: "🎁 Create AnyKernel3 Zip"
       run: 
-       zip -rj9 ./LineageOS-${{ env.UPLOADNAME }}-${{ env.DEVICE }}-${{ env.BUILD_TIME }}.zip ./kernel_workspace/AnyKernel3/*
+       zip -r9 -j ./LineageOS-${{ env.UPLOADNAME }}-${{ env.DEVICE }}-${{ env.BUILD_TIME }}.zip ./kernel_workspace/AnyKernel3/*
 
     - name: "📦 Upload AnyKernel3 to Release"
       uses: actions/upload-release-asset@v1
