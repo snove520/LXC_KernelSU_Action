@@ -1,4 +1,4 @@
-name: build android kernel tools(clang-r428724)
+name: build android kernel tools by clang-r428724
 on:
 
   workflow_dispatch:
