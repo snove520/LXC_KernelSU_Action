@@ -1,8 +1,6 @@
 name: Build kernel by clang-r416183b1
-on:
-  watch:
-    types: [started]
 
+on:
   workflow_dispatch:
   schedule:
    - cron: '01 17 * * *'
