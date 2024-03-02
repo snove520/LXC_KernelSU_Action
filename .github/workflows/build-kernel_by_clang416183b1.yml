@@ -76,6 +76,7 @@ jobs:
         mkdir ./clang-aosp 
         wget -O clang.tar.gz https://kali.download/nethunter-images/toolchains/clang-r416183b1.tar.gz
         tar -C clang-aosp/ -xf clang.tar.gz
+        #git clone --depth=1 https://github.com/LineageOS/android_prebuilts_clang_kernel_linux-x86_clang-r416183b.git clang-aosp
         wget https://kali.download/nethunter-images/toolchains/google_aarch64-4.9.tar.xz
         wget https://kali.download/nethunter-images/toolchains/google_armhf-4.9.tar.xz
         tar -xf google_aarch64-4.9.tar.xz
@@ -271,7 +272,7 @@ jobs:
         prerelease: false
         
     - name: "🎁 Create AnyKernel3 Zip"
-      run: zip ./kernel_workspace/AnyKernel3/LineageOS-${{ env.UPLOADNAME }}-${{ env.DEVICE }}-${{ env.BUILD_TIME }}.zip ./kernel_workspace/AnyKernel3/*
+      run: zip -r9 ./LineageOS-${{ env.UPLOADNAME }}-${{ env.DEVICE }}-${{ env.BUILD_TIME }}.zip ./kernel_workspace/AnyKernel3/*
 
     - name: "📦 Upload AnyKernel3 to Release"
       uses: actions/upload-release-asset@v1
@@ -279,6 +280,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
       with:
         upload_url: ${{ steps.create-release.outputs.upload_url }}
-        asset_path: ./kernel_workspace/AnyKernel3/LineageOS-${{ env.UPLOADNAME }}-${{ env.DEVICE }}-${{ env.BUILD_TIME }}.zip
+        asset_path: ./LineageOS-${{ env.UPLOADNAME }}-${{ env.DEVICE }}-${{ env.BUILD_TIME }}.zip
         asset_name: LineageOS-${{ env.UPLOADNAME }}-${{ env.DEVICE }}-${{ env.BUILD_TIME }}.zip
         asset_content_type: application/zip
