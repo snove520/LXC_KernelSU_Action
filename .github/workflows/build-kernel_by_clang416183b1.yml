@@ -252,8 +252,8 @@ jobs:
         sed -i 's!kernel.string=1!kernel.string=Your Custom Kernel Info!g' anykernel.sh
         sed -i 's!do.devicecheck=1!do.devicecheck=0!g' anykernel.sh
         sed -i 's!block=/dev/block/platform/omap/omap_hsmmc.0/by-name/boot;!block=auto;!g' anykernel.sh
-        cp kernel_workspace/android-kernel/out/arch/${{ env.ARCH }}/boot/${{ env.KERNEL_IMAGE_NAME }} /AnyKernel3
-        cp kernel_workspace/android-kernel/out/arch/${{ env.ARCH }}/boot/dtbo.img /AnyKernel3
+        cp android-kernel/out/arch/${{ env.ARCH }}/boot/${{ env.KERNEL_IMAGE_NAME }} /AnyKernel3
+        cp android-kernel/out/arch/${{ env.ARCH }}/boot/dtbo.img /AnyKernel3
         zip -r9 ./LineageOS-${{ env.UPLOADNAME }}-${{ env.DEVICE }}-${{ env.BUILD_TIME }}.zip * 
     
     - name: "📦 Upload Flashable Zip to Release"
