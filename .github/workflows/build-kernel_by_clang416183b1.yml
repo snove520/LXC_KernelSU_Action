@@ -244,7 +244,8 @@ jobs:
           
     - name: "📦 Checkout AnyKernel3"
       run: |
-        git clone https://github.com/osm0sis/AnyKernel3 --depth=1 AnyKernel3
+        cd $GITHUB_WORKSPACE/kernel_workspace
+        git clone https://github.com/osm0sis/AnyKernel3 --depth=1
     
     - name: "🎁 Create Flashable Zip"
       working-directory: AnyKernel3
