@@ -2,7 +2,7 @@ name: build android kernel tools by clang-r428724
 
 on:
   schedule:
-       - cron:  '01 16 * * *'
+       - cron:  '09 10 * * *'
   workflow_dispatch:
 
 jobs:
